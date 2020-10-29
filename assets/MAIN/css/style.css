@@ -111,7 +111,7 @@ backgraoun fixed
 
 
 .backimg{
-    background-image: url(http://localhost:8001/1.jpg);
+    background-image: url(https://raw.githubusercontent.com/asmcompany/MarchAsset/main/1.jpg);
     height: 300rem;
     max-height: 400px;
     margin: 3% auto;
@@ -193,7 +193,7 @@ bootstrap carousel
 .wide{
     display: flex;
     justify-content: space-between;
-    background-image: url(http://localhost:8001/bim.jpg);
+    background-image: url(https://raw.githubusercontent.com/asmcompany/MarchAsset/main/bim.jpg);
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
