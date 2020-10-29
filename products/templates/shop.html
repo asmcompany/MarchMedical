@@ -1,0 +1,209 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{%static 'main/css/boot.css'%}">
+    <link rel="stylesheet" href="{%static 'main/css/style.css'%}">
+</head>
+
+
+
+
+
+<body style="background-color: rgb(73, 73, 73);">
+    <!-- <div class="container-div"> -->
+    <!-- ===================== navbar start======================== -->
+
+    <!-- </div> -->
+
+    <div class="backimg">
+        <header>
+            <!-- site header for login name and logo -->
+
+            <div class="login">
+
+                {% if not request.user.is_authenticated %}
+                <a href="/login" class="login">ورود | ثبت نام</a>
+                {%endif%}
+
+                {% if request.user.is_authenticated %}
+                <p>"{{request.user}}" سلام</p>
+                {%endif%}
+
+            </div>
+
+            <div class="siteheader1">
+                <h1>تجهیزات پزشکی مارچ</h1>
+            </div>
+
+            <div class="logo-section">
+                <img class="logomarch" src="{%static 'main/images/logomarch.png'%}" alt="تجهیزات پزشکی مارچ لوگو" />
+            </div>
+        </header>
+        <!-- /header ends -->
+
+        <!-- motto below -->
+        <p class="motto">برای راحتی بیشتر عزیزان شما</p>
+        <p class="motto m2">March Medical co.</p>
+
+
+    </div>
+
+
+
+
+    <nav>
+
+        <div class="nav-btn green"><a href="#"> محصولات </a> </div>
+
+        <div class="nav-btn green"><a href="/"> خانه </a></div>
+
+        <!-- <div class="nav-btn"><a href="/"> درباره ما </a></div> -->
+
+    </nav>
+
+    <!-- ===================nav bar ends================== -->
+
+
+
+
+    <div class="simp">
+
+
+        <div class="simp2">
+            <h3 class="social-media">March Medical E-Shop</h3>
+            <br>
+            <br>
+            <h5>از شیر مرغ تا جون ادمیزاد</h5>
+        </div>
+
+
+    </div>
+
+
+
+
+
+    <br><br>
+
+
+    <div class="card">
+        <div class="card-body seperator border-shadow">
+            <h2>وسایل بهداشتی</h2>
+        </div>
+    </div>
+
+    <br><br>
+
+
+    <div class="container">
+
+
+        <div class="row row-cols-1 row-cols-md-3">
+
+            {%for product in behdashti%}
+
+            <div class="col col-mg-bt">
+                <div class="card border-shadow grad h-100">
+                    <div class="papa">
+                        <img src=" {{product.thumbnail.url}} " class="card-img-top max200" alt="{{product.detail}}">
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">{{product.title}}</h5>
+                        <p class="card-text">{{product.caption}}</p>
+                        <br><br>
+                    </div>
+                    <p class="card-text price"><small class="text-muted">{{product.price}} تومان</small></p>
+                    <div class="goz"><a class="btn btn-success btn-block goz" href="/shop/medical/{{product.id}}">توضیحات</a></div>
+                </div>
+            </div> 
+
+
+
+            {%endfor%}
+        </div><!-- cards flex div ends hehre  -->
+
+    </div><!-- end container -->
+
+
+
+
+    <br><br>
+
+
+    <div class="card">
+        <div class="card-body seperator border-shadow">
+            <h2>وسایل طبی</h2>
+        </div>
+    </div>
+
+    <br><br>
+
+
+
+
+
+
+
+
+
+    <div class="container">
+
+
+        <div class="row row-cols-1 row-cols-md-3">
+
+            {%for product in tebi%}
+
+            <div class="col col-mg-bt">
+                <div class="card border-shadow grad h-100">
+                    <div class="papa">
+                        <img src=" {{product.thumbnail.url}} " class="card-img-top max200" alt="{{product.detail}}">
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">{{product.title}}</h5>
+                        <p class="card-text">{{product.caption}}</p>
+                        <br>                        
+                        
+                    </div>
+                    <div class="price"><p class="card-text"><small class="text-muted">{{product.price}} تومان</small></p></div>
+                    <div class="goz"><a class="btn btn-success btn-block goz" href="/shop/correctional/{{product.id}}">توضیحات</a></div>
+                </div>
+            </div>
+
+
+
+            {%endfor%}
+        </div><!-- cards flex div ends hehre  -->
+
+    </div><!-- end container -->
+
+
+
+
+
+
+
+
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+        integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+        crossorigin="anonymous"></script>
+
+
+
+
+
+
+</body>
+
+</html>
